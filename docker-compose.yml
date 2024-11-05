@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: claims_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

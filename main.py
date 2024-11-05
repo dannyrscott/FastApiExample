@@ -33,6 +33,8 @@ def create_claim(claim: Claim):
     print(claim)
     with Session(engine) as session:
         session.add(claim)
+        # Communicate with PAYMENTS here. Try/Catch and rollback on failure. commit on success
+        #
         session.commit()
     return {"claim_id": claim.claim_id, "net_fee": claim.net_fee}
 

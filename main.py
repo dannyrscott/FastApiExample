@@ -18,7 +18,8 @@ class Claim(SQLModel, table=True):
     quadrant: Optional[str]
     plan_group_number: str = Field(alias="Plan/Group #")
     subscriber_number: float = Field(alias="Subscriber#")
-    net_fee: float = 0.0
+    net_fee: float = 0.0    
+    
 
 DATABASE_URL = "postgresql://user:password@db/claims_db"
 engine = create_engine(DATABASE_URL)
